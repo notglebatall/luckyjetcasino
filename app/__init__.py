@@ -1,4 +1,4 @@
-import calc
+import app.calc as calc
 
 from flask import Flask, render_template, request
 

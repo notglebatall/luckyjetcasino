@@ -57,8 +57,8 @@ function runSim() {
   multiplier.style.color = "rgba(199, 210, 254)";
 
   getFactor(
-    document.getElementById("init-crash").value,
-    document.getElementById("growth-rate").value,
+    33,
+    1,
     multiplier,
     runButton
   );

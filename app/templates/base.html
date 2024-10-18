@@ -110,7 +110,7 @@
 
         <div class="relative mx-6 mb-6">
           <label class="text-gray-100 text-sm font-bold">
-            Initial Crash Rate
+            Автовывод
           </label>
           <div class="absolute inset-y-0 top-6 left-0 flex items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -120,12 +120,12 @@
                 clip-rule="evenodd" />
             </svg>
           </div>
-          <input id="init-crash" type="number" step="1" min="-1" oninput="validity.valid||(value='');" value="33"
+          <input id="init-crash" type="number" step="0.01" min="1" oninput="validity.valid||(value='');" value="1.50"
             class="bg-white border appearance-none border-indigo-600 text-black text-sm rounded-md focus:border-red-500 block w-full pl-10 p-2.5"
-            placeholder="Enter Value" />
+            placeholder="Введите коэффцициент" />
         </div>
 
-        <div class="relative m-6">
+        {#<div class="relative m-6">
           <label class="text-gray-100 text-sm font-bold"> Growth Rate </label>
           <div class="absolute inset-y-0 top-6 left-0 flex items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -138,7 +138,7 @@
           <input id="growth-rate" type="number" step="1" min="-1" value="1" oninput="validity.valid||(value='');"
             class="bg-white border appearance-none border-indigo-600 text-black text-sm rounded-md focus:border-red-500 block w-full pl-10 p-2.5"
             placeholder="Enter Value" />
-        </div>
+        </div>#}
 
         <div class="relative m-6">
           <label class="text-gray-100 text-sm font-bold" for="Bet Amount">
@@ -193,137 +193,15 @@
           1.00×
         </label>
       </div>
-      <!-- Animation Interface End-->
-      <!-- Animation Interface Start-->
-      <div
-        class="w-full bg-indigo-900 rounded-md col-span-12 row-span-2 shadow-black shadow-lg flex flex-col items-center justify-evenly p-6">
-        <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-          <div class="relative">
-            <label class="text-gray-100 text-sm font-bold"> Multiplier</label>
-            <div class="absolute inset-y-0 top-6 left-0 flex items-center pl-3 pointer-events-none">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                class="w-5 h-5 text-indigo-800">
-                <path fill-rule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input id="multi-calc" type="number" step="0.01" value="1.99"
-              class="bg-white border appearance-none border-indigo-600 text-black text-sm rounded-md focus:border-red-500 block w-full pl-10 p-2.5"
-              placeholder="Enter Multiplier" />
-          </div>
-          <div class="relative">
-            <label class="text-gray-100 text-sm font-bold">Initial Crash Rate</label>
-            <div class="absolute inset-y-0 top-6 left-0 flex items-center pl-3 pointer-events-none">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                class="w-5 h-5 text-indigo-800">
-                <path fill-rule="evenodd"
-                  d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152-.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input id="init-calc" type="number" step="1" min="-1" oninput="validity.valid||(value='');" value="33"
-              class="bg-white border appearance-none border-indigo-600 text-black text-sm rounded-md focus:border-red-500 block w-full pl-10 p-2.5"
-              placeholder="Enter Value" />
-          </div>
-          <div class="relative">
-            <label class="text-gray-100 text-sm font-bold">
-              Growth Rate</label>
-            <div class="absolute inset-y-0 top-6 left-0 flex items-center pl-3 pointer-events-none">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                class="w-5 h-5 text-indigo-800">
-                <path fill-rule="evenodd"
-                  d="M15.22 6.268a.75.75 0 01.968-.432l5.942 2.28a.75.75 0 01.431.97l-2.28 5.941a.75.75 0 11-1.4-.537l1.63-4.251-1.086.483a11.2 11.2 0 00-5.45 5.174.75.75 0 01-1.199.19L9 12.31l-6.22 6.22a.75.75 0 11-1.06-1.06l6.75-6.75a.75.75 0 011.06 0l3.606 3.605a12.694 12.694 0 015.68-4.973l1.086-.484-4.251-1.631a.75.75 0 01-.432-.97z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <input id="growth-calc" type="number" step="1" min="-1" value="1" oninput="validity.valid||(value='');"
-              class="bg-white border appearance-none border-indigo-600 text-black text-sm rounded-md focus:border-red-500 block w-full pl-10 p-2.5"
-              placeholder="Enter Value" />
-          </div>
-          <button id="runCalcButton" type="button" onclick="runCalc()"
-            class="px-6 py-3 bg-gray-900 text-gray-100 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-700 transition duration-150 ease-in-out">
-            Calculate
-          </button>
-        </div>
-
-        <label class="text-gray-100 text-sm font-medium hover:font-bold text-center mt-8 sm:mt-0 sm:text-md"
-          id="calc-val">
-          On a 1 Space Coin bet, if you cash out everytime at ____x. Expect a
-          loss/profit of _______ Space Coin(s)
-        </label>
-        <label class="text-gray-300 text-xs font-light mt-8 sm:mt-0 text-center" id="calc-val-spec">
-          Multiplier = 1.99, Initial Crash Rate = 3.33%, Growth Rate = 1, CDF
-        </label>
-      </div>
-    </div>
-
-    <div class="bg-indigo-900 p-2 rounded-md my-5 w-full 2xl:w-4/6 relative z-10 shadow-black shadow-lg">
-      <h1 class="text-gray-200 text-3xl text-center font-bold mt-10">
-        A Study of the Casino Game Crash
-      </h1>
-
-      <div class="mx-6 mb-12">
-        <a href="https://www.esa.int/About_Us/ESA_history/50_years_of_humans_in_space/First_woman_in_space_Valentina">
-          <img src="../static/img/cover.jpg" class="w-1/2 float-right ml-6 my-3 rounded-md hover:shadow-2xl"
-            alt="Photo of Valentina Tereshkova" />
-        </a>
-        <p class="text-gray-300 text-sm font-bold my-3">
-          Project Valentina was created to explore the statistics behind
-          Crash. Crash is a simple game of chance where a player picks the
-          cashout amount for a betting round as an icon representing a rocket
-          flying through space. The cashout amount climbs until the rocket
-          'crashes' and as long as the player's cashout amount is lower than
-          the crash value, the player can win a payout. (Multiplier * Initial
-          Value)
-        </p>
-
-        <h3 class="text-gray-100 text-xl font-bold">
-          Why it's impossible to win in the long term
-        </h3>
-        <p class="text-gray-300 text-sm font-bold my-3">
-          Crash uses an equation to calculate their given multipliers. And
-          regardless of the cashed out point, the expected value will always
-          be below 0.
-        </p>
-        <h3 class="text-gray-100 text-xl font-bold">
-          What do these variables mean?
-        </h3>
-        <p class="text-gray-300 text-sm font-bold my-3">
-          <b class="text-red-300">Multiplier:</b> Calculate the expected value
-          assuming you always cash out at this multiplier value. <br /><br />
-          <b class="text-red-300">Initial Crash Rate:</b> Chance the game
-          crashes at 1 (ie. if the value is v, then it will crash at 1.0x,
-          (1/v * 100)% of the time). The lower the value, the more likely it
-          is to crash at 1 <br /><br />
-          <b class="text-red-300">Growth Rate:</b> The Pareto index, It can be
-          used to skew the results infavor of the casino, the higher the
-          growth rate, the more likely you are to have lower multipliers (Most
-          casinos use a growth rate of 1, so it doesn't skew the game too much
-          in their favor and break the illusion of a fair game)
-        </p>
-      </div>
-    </div>
 
     <!-- Star Animation Start -->
     <div id="stars" class="hidden sm:block"></div>
     <!-- Star Animation End-->
-  </div>
+    </div>
 </body>
-<footer class="p-4 rounded-lg shadow md:flex md:items-center md:justify-between xl:py-6 xl:px-60 bg-indigo-900">
-  <span class="text-sm text-gray-200 sm:text-center">Project Valentina - Made by Justin Zhang
-  </span>
-  <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-200 sm:mt-0">
-    <li>
-      <a href="https://www.justinjzhang.com/" class="mr-4 hover:font-bold md:mr-6">About</a>
-    </li>
-    <li>
-      <a href="https://cal.com/justinzhang" class="hover:font-bold">Contact</a>
-    </li>
-  </ul>
-</footer>
+
+
 <!-- External Scripts -->
-<script src="https://unpkg.com/kursor"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- Internal Scripts -->
 <script src="../static/js/counter.js" defer></script>
