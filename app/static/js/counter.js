@@ -2,10 +2,21 @@
 const animateValue = async (obj, end, button) => {
   obj.innerHTML = (1).toFixed(2) + "×";
   setButtonValue(button, "cashout");
+  const autoCashoutValue = parseFloat(document.getElementById("init-crash").value);
+  let cashedOut = false;
+
   await sleep(5000);
   for (let i = 1; i <= (end - 1) * 100; i++) {
     await sleep((1 / (0.2 * i + 1)) * 1000);
-    obj.innerHTML = (1 + i / 100.0).toFixed(2) + "×";
+    const currentMultiplier = (1 + i / 100.0).toFixed(2);
+    obj.innerHTML = currentMultiplier + "×";
+
+    // Check for auto cashout
+    if (!cashedOut && parseFloat(currentMultiplier) >= autoCashoutValue) {
+      cashout(document.getElementById("bet-amount"), document.getElementById("bank-val"));
+      setButtonValue(button, "cashed out");
+      cashedOut = true; // Mark as cashed out
+    }
   }
   obj.style.color = "#C41E3A";
   document.getElementById("bet-amount").value = "";
@@ -57,7 +68,7 @@ function runSim() {
   multiplier.style.color = "rgba(199, 210, 254)";
 
   getFactor(
-    33,
+    20,
     1,
     multiplier,
     runButton
